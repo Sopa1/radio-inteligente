@@ -707,11 +707,6 @@ void analizarMensajes() {
 
 	if (strstr(mensajeCompleto, "**[id: ") != NULL || strstr(mensajeCompleto, "**[rj ") != NULL || strstr(mensajeCompleto, ", c: ") != NULL || strstr(mensajeCompleto, "[radio id: ") != NULL || strstr(mensajeCompleto, "| ch: ") != NULL)
 	{
-		if (strstr(mensajeCompleto, "**[rj ") != NULL)
-		{
-			reproducirSonido(archivosDeSonido[S_IMPORTANTE]);
-			Sleep(300);
-		}
 		// Avisos de reunión general (10-80)
 		if(radioInteligente.obtenerValorAviso(A_REUNION_GENERAL))
 		{
@@ -824,7 +819,7 @@ void analizarMensajes() {
 					wcsstr(radioInteligente.obtenerNombreIndicativo(), L"ROBERT") != NULL ||
 					wcsstr(radioInteligente.obtenerNombreIndicativo(), L"K9") != NULL)
 				{
-					reproducirSonido(archivosDeSonido[S_CODIGO_TAC]);
+					reproducirSonido(archivosDeSonido[S_SWAT_UNO]);
 					return;
 				}
 			}
@@ -968,10 +963,21 @@ void analizarMensajes() {
 	if(radioInteligente.obtenerValorAviso(A_HERIDO))
 	{
 		srand((unsigned int)time(NULL));
-		int sonidoAleatorio = rand() % (S_HERIDO_CUATRO - S_HERIDO_UNO) + S_HERIDO_UNO;
-		if(strstr(mensajeCompleto, "d] aviso de herido en") != NULL)
+		int sonidoAleatorioDisparos = rand() % (S_DISPAROS_DOS - S_DISPAROS_UNO) + S_DISPAROS_UNO;
+		int sonidoAleatorioDisturbios = rand() % (S_HERIDO_DOS - S_HERIDO_UNO) + S_HERIDO_UNO;
+		if(strstr(mensajeCompleto, "se han reportado disparos en") != NULL)
 		{
-			reproducirSonido(archivosDeSonido[sonidoAleatorio]);
+			reproducirSonido(archivosDeSonido[sonidoAleatorioDisparos]);
+			return;
+		}
+		else if (strstr(mensajeCompleto, "se han reportado disturbios en") != NULL)
+		{
+			reproducirSonido(archivosDeSonido[sonidoAleatorioDisturbios]);
+			return;
+		}
+		else if (strstr(mensajeCompleto, "se ha reportado un accidente en") != NULL)
+		{
+			reproducirSonido(archivosDeSonido[sonidoAleatorioDisturbios]);
 			return;
 		}
 	}

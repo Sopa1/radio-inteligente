@@ -56,14 +56,14 @@ const wchar_t *archivosDeSonido[] = {
     L"central.wav", // S_CENTRAL
     L"code2.wav", // S_CODIGO_DOS
     L"code3.wav", // S_CODIGO_TRES
-    L"codigo_tac.wav", // S_CODIGO_TAC
+    L"SWAT1.wav", // S_SWAT_UNO
     L"custody.wav", // S_CUSTODIA
     L"custodia_varios1.wav", // S_CUSTODIA_VARIOS_UNO
     L"custodia_varios2.wav", // S_CUSTODIA_VARIOS_DOS
     L"herido1.wav", // S_HERIDO_UNO
     L"herido2.wav", // S_HERIDO_DOS
-    L"herido3.wav", // S_HERIDO_TRES
-    L"herido4.wav", // S_HERIDO_CUATRO
+    L"disparos1.wav", // S_DISPAROS_UNO
+    L"disparos2.wav", // S_DISPAROS_DOS
     L"robado1.wav", // S_ROBADO_UNO
     L"robado2.wav", // S_ROBADO_DOS
     L"robado3.wav", // S_ROBADO_TRES
